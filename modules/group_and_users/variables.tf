@@ -12,3 +12,9 @@ variable "custom_policy_files" {
   type        = map(string)
   description = "Map of policy name to JSON file path"
 }
+
+variable "tags" {
+  description = "Common tags to apply to all resources"
+  type        = map(string)
+  default     = {}
+}

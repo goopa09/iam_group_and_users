@@ -7,11 +7,13 @@ resource "aws_iam_policy" "custom_policies" {
   name        = each.key
   description = "${each.key} attached from file"
   policy      = file(each.value)
+  tags        = var.tags
 }
 
 resource "aws_iam_user" "users" {
   for_each = toset(var.iam_user_names)
   name     = each.key
+  tags     = var.tags
 }
 
 resource "aws_iam_group_membership" "admin_group_membership" {
