@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowFromSpecificIpOrAWSService",
+      "Effect": "Deny",
+      "Action": "*",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:ViaAWSService": "true"
+        },
+        "NotIpAddressIfExists": {
+          "aws:SourceIp": [
+            "211.241.98.240/32"
+          ]
+        }
+      }
+    }
+  ]
+}
+
